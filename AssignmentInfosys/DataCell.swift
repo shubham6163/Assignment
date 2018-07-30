@@ -14,11 +14,17 @@ class DataCell: UITableViewCell {
     let titleLabel = UILabel()
     let detailLabel = UILabel()
     
-    // MARK: Initalizers
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         let marginGuide = contentView.layoutMarginsGuide
+        
+        // configure ImageView
+        contentView.addSubview(imgView)
+        imgView.translatesAutoresizingMaskIntoConstraints = false
+        imgView.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor).isActive = true
+        imgView.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
+        imgView.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
         
         // configure titleLabel
         contentView.addSubview(titleLabel)
@@ -29,7 +35,7 @@ class DataCell: UITableViewCell {
         titleLabel.numberOfLines = 0
         titleLabel.font = UIFont(name: "AvenirNext-DemiBold", size: 16)
         
-        // configure authorLabel
+        // configure detailLabel
         contentView.addSubview(detailLabel)
         detailLabel.translatesAutoresizingMaskIntoConstraints = false
         detailLabel.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor).isActive = true
@@ -37,7 +43,7 @@ class DataCell: UITableViewCell {
         detailLabel.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
         detailLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor).isActive = true
         detailLabel.numberOfLines = 0
-        detailLabel.font = UIFont(name: "Avenir-Book", size: 12)
+        detailLabel.font = UIFont(name: "AvenirNext", size: 12)
         detailLabel.textColor = UIColor.lightGray
     }
     

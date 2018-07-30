@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ViewController: UIViewController {
 
@@ -20,7 +21,7 @@ class ViewController: UIViewController {
         configureTableView()
     }
     
-    func configureTableView() {
+    public func configureTableView() {
         tableview.dataSource = self
         tableview.estimatedRowHeight = 100
         tableview.rowHeight = UITableViewAutomaticDimension
@@ -33,13 +34,6 @@ class ViewController: UIViewController {
         tableview.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         tableview.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 extension ViewController : UITableViewDataSource {
     
@@ -50,6 +44,18 @@ extension ViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: tableCellReuseIdentifier, for: indexPath) as! DataCell
         let data = dataList[(indexPath as NSIndexPath).row]
+        let url = URL(string: data.imageHref)
+        cell.imageView?.kf.indicatorType = .activity
+        cell.imageView?.layer.cornerRadius = (cell.imageView?.bounds.height)! / 10
+        
+        cell.imageView?.clipsToBounds = true
+        cell.imageView?.kf.setImage(with: url,
+                                     placeholder: nil,
+                                     options: [.transition(.fade(1))],
+                                     progressBlock: { receivedSize, totalSize in
+        },
+                                     completionHandler: { image, error, cacheType, imageURL in
+        })
         cell.titleLabel.text = data.title
         cell.detailLabel.text = data.descripsion
         return cell

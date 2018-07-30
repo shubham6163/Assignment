@@ -242,6 +242,11 @@
 					52B23E96210C834D008CEF9E = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 					52B23EAA210C834D008CEF9E = {
 						CreatedOnToolsVersion = 9.0;
@@ -310,11 +315,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-AssignmentInfosys/Pods-AssignmentInfosys-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -530,6 +537,8 @@
 					"\"${PODS_ROOT}/Alamofire/\"/**",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/SwiftyJSON\"",
 					"\"${PODS_ROOT}/SwiftyJSON\"/**",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher\"",
+					"\"${PODS_ROOT}/Kingfisher\"/**",
 				);
 				INFOPLIST_FILE = AssignmentInfosys/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -537,7 +546,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "\"${PODS_ROOT}/BuildHeaders\"/**";
+				USER_HEADER_SEARCH_PATHS = "\"$(inherited)\"/** \"${PODS_ROOT}/BuildHeaders\"/**";
 			};
 			name = Debug;
 		};
@@ -554,6 +563,8 @@
 					"\"${PODS_ROOT}/Alamofire/\"/**",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/SwiftyJSON\"",
 					"\"${PODS_ROOT}/SwiftyJSON\"/**",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher\"",
+					"\"${PODS_ROOT}/Kingfisher\"/**",
 				);
 				INFOPLIST_FILE = AssignmentInfosys/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -561,7 +572,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "\"${PODS_ROOT}/BuildHeaders\"/**";
+				USER_HEADER_SEARCH_PATHS = "\"$(inherited)\"/** \"${PODS_ROOT}/BuildHeaders\"/**";
 			};
 			name = Release;
 		};
